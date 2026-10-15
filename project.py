@@ -54,16 +54,15 @@ location=top5["location"]
 cases=top5["total_cases"]
 plt.figure(figsize=(10,5))
 plt.bar(location,cases,color="skyblue",edgecolor="black")
-plt.xlabel("Total Cases")
+plt.xlabel("Country")
 plt.ylabel("Top 5 Countries by Total Cases")
 plt.grid(axis='x',linestyle='--',alpha=0.7)
-plt.gca().invert_yaxis()
 plt.tight_layout()
 plt.show()
 
 #Total Cases vs Death
 plt.scatter(latest["total_cases"],latest["total_deaths"],alpha=0.7)
-plt.xlabel("Total Cases")
+plt.xlabel("Country")
 plt.ylabel("Total Deaths")
 plt.title("Cases Vs Deaths")
 plt.grid(True)

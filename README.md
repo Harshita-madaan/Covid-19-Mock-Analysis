@@ -53,3 +53,7 @@ This project uses **synthetically generated mock data** and does **not** represe
 This is a mock data project designed to demonstrate data analysis workflows and visualization techniques. It is not intended for medical, epidemiological, or public health decision-making.
 
 
+
+## Note on Dataset
+
+This project uses a mock COVID-19 dataset for educational and analytical purposes. The values are synthetic and should not be interpreted as actual historical COVID-19 statistics or used for real-world forecasting.
