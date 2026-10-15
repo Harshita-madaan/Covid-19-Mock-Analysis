@@ -41,23 +41,30 @@ results = {}
 predictions = {}
 
 # Train, predict and evaluate each model
+results = {}
+predictions = {}
+
 for name, model in models.items():
     model.fit(X_train, y_train)
-    pred = model.predict(X_test)
 
-    predictions[name] = pred
+    train_pred = model.predict(X_train)
+    test_pred = model.predict(X_test)
+
+    predictions[name] = test_pred
+
     results[name] = {
-        "MAE": round(mean_absolute_error(y_test, pred), 2),
-        "R2 Score": round(r2_score(y_test, pred), 4)
+        "Train MAE": round(mean_absolute_error(y_train, train_pred), 2),
+        "Test MAE": round(mean_absolute_error(y_test, test_pred), 2),
+        "Train R2": round(r2_score(y_train, train_pred), 4),
+        "Test R2": round(r2_score(y_test, test_pred), 4)
     }
 
-# Display comparison
 comparison = pd.DataFrame(results).T
 print("\nREGRESSION MODEL COMPARISON")
 print(comparison.to_string())
 
-best_model = comparison["MAE"].idxmin()
-print("\nBest model based on lowest MAE:", best_model)
+best_model = comparison["Test MAE"].idxmin()
+print("\nBest model based on lowest Test MAE:", best_model)
 
 # Plot actual and predicted cases
 plt.figure(figsize=(10, 5))
